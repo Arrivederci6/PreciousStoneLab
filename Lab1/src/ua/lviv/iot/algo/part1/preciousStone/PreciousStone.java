@@ -1,14 +1,13 @@
 package ua.lviv.iot.algo.part1.preciousStone;
 
 import lombok.*;
+
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
-
 public class PreciousStone {
-
     private String name;
     private double carat;
     private String color;
@@ -29,15 +28,18 @@ public class PreciousStone {
     }
 
     public void increasePrice(double percentage){
-         pricePerCarat += pricePerCarat / percentage;
+        pricePerCarat += pricePerCarat / percentage;
     }
 
     public static void main(String[] args) {
-        PreciousStone[] preciousStoneArray = new PreciousStone[4];
-        preciousStoneArray[0] = new PreciousStone();
-        preciousStoneArray[1] = new PreciousStone("Diamond", 12.5, "Aqua-Blue", 19.9, 9.99);
-        preciousStoneArray[2] = PreciousStone.getInstance();
-        preciousStoneArray[3] = PreciousStone.getInstance();
-        System.out.println(preciousStoneArray[1]);
+        PreciousStone[] preciousStoneArray = {
+                new PreciousStone(),
+                new PreciousStone("Diamond", 12.5, "Aqua-Blue", 19.9, 9.99),
+                PreciousStone.getInstance(),
+                PreciousStone.getInstance()};
+
+        for (PreciousStone stone: preciousStoneArray) {
+            System.out.println(stone);
+        }
     }
 }
