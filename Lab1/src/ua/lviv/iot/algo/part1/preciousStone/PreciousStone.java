@@ -9,6 +9,7 @@ import lombok.*;
 @ToString
 
 public class PreciousStone extends Stone {
+
     private double clarity;
     private static PreciousStone instance = new PreciousStone();
 
@@ -33,5 +34,4 @@ public class PreciousStone extends Stone {
     public double getFullPrice() {
         return weightInGrams * pricePerGram * clarity;
     }
-
 }
