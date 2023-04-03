@@ -7,39 +7,31 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class PreciousStone {
-    private String name;
-    private double carat;
-    private String color;
+
+public class PreciousStone extends Stone {
+
     private double clarity;
-    private double pricePerCarat;
     private static PreciousStone instance = new PreciousStone();
+
+    public PreciousStone(String name, String color, double weightInGrams, double pricePerGram, double clarity){
+        super(name, color, weightInGrams, pricePerGram);
+        this.clarity = clarity;
+    }
 
     public static PreciousStone getInstance() {
         return instance;
     }
 
-    public double getTotalPrice(){
-        return carat * pricePerCarat;
-    }
-
-    public void increaseClarity(){
+    public void increaseClarity() {
         clarity++;
     }
 
-    public void increasePrice(double percentage){
-        pricePerCarat += pricePerCarat / percentage;
+    public void increasePrice(double percentage) {
+        pricePerGram += pricePerGram / percentage;
     }
 
-    public static void main(String[] args) {
-        PreciousStone[] preciousStoneArray = {
-                new PreciousStone(),
-                new PreciousStone("Diamond", 12.5, "Aqua-Blue", 19.9, 9.99),
-                PreciousStone.getInstance(),
-                PreciousStone.getInstance()};
-
-        for (PreciousStone stone: preciousStoneArray) {
-            System.out.println(stone);
-        }
+    @Override
+    public double getFullPrice() {
+        return weightInGrams * pricePerGram * clarity;
     }
 }
