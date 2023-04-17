@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.preciousStone;
+package work.src.main.java.ua.lviv.iot;
 
 import lombok.*;
 
@@ -15,6 +15,15 @@ public class ArtificialPreciousStone extends Stone{
     public ArtificialPreciousStone(String name, String color, double weightInGrams, double pricePerGram, String stoneLaboratoryName){
         super(name, color, weightInGrams, pricePerGram);
         this.stoneLaboratoryName = stoneLaboratoryName;
+    }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEADER
+    public String getHeaders(){
+        return super.getHeaders() + "," + "stoneLaboratoryName";
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CSV
+    public String toCSV() {
+        return super.toCSV() + "," + stoneLaboratoryName;
     }
 
     @Override

@@ -1,10 +1,16 @@
-package ua.lviv.iot.algo.part1.preciousStone;
+package work.src.test.java.ua.lviv.iot;
 
+import lombok.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 class DestroyedStoneTest {
 
     private PreciousStone preciousStone;

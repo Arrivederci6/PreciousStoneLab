@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.preciousStone;
+package work.src.main.java.ua.lviv.iot;
 
 public class DestroyedStone extends Stone{
 
@@ -8,6 +8,16 @@ public class DestroyedStone extends Stone{
         super(name, color, weightInGrams, pricePerGram);
         this.destructionIndex = destructionIndex;
     }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEADER
+    public String getHeaders(){
+        return super.getHeaders() + "," + "destructionIndex";
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CSV
+    public String toCSV() {
+        return super.toCSV() + "," + destructionIndex;
+    }
+
     @Override
     public double getFullPrice() {
         return pricePerGram / destructionIndex;

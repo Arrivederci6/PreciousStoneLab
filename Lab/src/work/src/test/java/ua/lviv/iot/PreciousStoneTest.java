@@ -1,11 +1,19 @@
-package ua.lviv.iot.algo.part1.preciousStone;
+package work.src.test.java.ua.lviv.iot;
 
-import org.junit.jupiter.api.Assertions;
+import lombok.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import work.src.main.java.ua.lviv.iot.FossilStone;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 class PreciousStoneTest {
 
     private PreciousStone preciousStone;
@@ -25,13 +33,12 @@ class PreciousStoneTest {
 
     @Test
     void testIncreaseClarity(){
-        // Get initial clarity
         double initialClarity = preciousStone.getClarity();
-        // Call increaseClarity() method
+
         preciousStone.increaseClarity();
-        // Get updated clarity
+
         double updatedClarity = preciousStone.getClarity();
-        // Ensure clarity is increased by 1
+
         assertEquals(initialClarity + 1, updatedClarity);
     }
 
@@ -54,5 +61,27 @@ class PreciousStoneTest {
         double expectedFullPrice = 50.0 * 10.0 * 0.9;
         double actualFullPrice = preciousStone.getFullPrice();
         assertEquals(expectedFullPrice, actualFullPrice);
+    }
+
+
+    @Test
+    public void testGetHeadersWithClaritySuccess() {
+        FossilStone coal = new FossilStone("Coal", "Black", 99.9, 0.9,  0.5);
+        String expectedHeaders = "name,color,weightInGrams,pricePerGram,clarity";
+        String actualHeaders = coal.getHeaders();
+        assertEquals(expectedHeaders, actualHeaders);
+    }
+
+    @Test
+    public void testGetHeadersEmptyFileFailure() throws IOException {
+        String fileName = "emptyFile.txt";
+        createTempFile(fileName, "");
+        FossilStone fossilStone = new FossilStone();
+        try {
+            fossilStone.getHeaders(fileName);
+            fail("exception");
+        } catch (IOException e) {
+            assertEquals("file is empty", e.getMessage());
+        }
     }
 }
