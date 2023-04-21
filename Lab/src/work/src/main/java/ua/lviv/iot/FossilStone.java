@@ -1,5 +1,6 @@
 package work.src.main.java.ua.lviv.iot;
 
+
 public class FossilStone extends Stone{
     private double energyPerBurnedGram;
 
@@ -9,10 +10,12 @@ public class FossilStone extends Stone{
     }
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEADER
+    @Override
     public String getHeaders(){
         return super.getHeaders() + "," + "energyPerBurnedGram";
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CSV
+    @Override
     public String toCSV() {
         return super.toCSV() + "," + energyPerBurnedGram;
     }

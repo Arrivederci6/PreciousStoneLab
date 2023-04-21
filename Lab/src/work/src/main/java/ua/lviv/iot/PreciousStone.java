@@ -31,10 +31,12 @@ public class PreciousStone extends Stone {
     }
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEADER
+    @Override
     public String getHeaders(){
         return super.getHeaders() + "," + "clarity";
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CSV
+    @Override
     public String toCSV() {
         return super.toCSV() + "," + clarity;
     }

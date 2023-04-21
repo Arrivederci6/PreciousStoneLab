@@ -19,6 +19,7 @@ public abstract class Stone {
         return 0;
     }
 
+
     public String getHeaders(){
         return "name," + "color," + "weightInGrams," + "pricePerGram";
     }

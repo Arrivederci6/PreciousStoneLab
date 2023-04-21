@@ -1,5 +1,6 @@
 package work.src.main.java.ua.lviv.iot;
 
+
 public class DestroyedStone extends Stone{
 
     private double destructionIndex;
@@ -10,10 +11,12 @@ public class DestroyedStone extends Stone{
     }
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEADER
+    @Override
     public String getHeaders(){
         return super.getHeaders() + "," + "destructionIndex";
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CSV
+    @Override
     public String toCSV() {
         return super.toCSV() + "," + destructionIndex;
     }

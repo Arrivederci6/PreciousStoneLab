@@ -7,7 +7,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 public class ArtificialPreciousStone extends Stone{
 
     private String stoneLaboratoryName;
@@ -18,10 +17,12 @@ public class ArtificialPreciousStone extends Stone{
     }
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEADER
+    @Override
     public String getHeaders(){
         return super.getHeaders() + "," + "stoneLaboratoryName";
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CSV
+    @Override
     public String toCSV() {
         return super.toCSV() + "," + stoneLaboratoryName;
     }

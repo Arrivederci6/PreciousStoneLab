@@ -3,6 +3,7 @@ package work.src.test.java.ua.lviv.iot;
 import lombok.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import work.src.main.java.ua.lviv.iot.PreciousStone;
 
 import static org.junit.jupiter.api.Assertions.*;
 

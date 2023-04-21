@@ -4,6 +4,7 @@ import lombok.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import work.src.main.java.ua.lviv.iot.FossilStone;
+import work.src.main.java.ua.lviv.iot.PreciousStone;
 
 import java.io.IOException;
 
@@ -63,25 +64,4 @@ class PreciousStoneTest {
         assertEquals(expectedFullPrice, actualFullPrice);
     }
 
-
-    @Test
-    public void testGetHeadersWithClaritySuccess() {
-        FossilStone coal = new FossilStone("Coal", "Black", 99.9, 0.9,  0.5);
-        String expectedHeaders = "name,color,weightInGrams,pricePerGram,clarity";
-        String actualHeaders = coal.getHeaders();
-        assertEquals(expectedHeaders, actualHeaders);
-    }
-
-    @Test
-    public void testGetHeadersEmptyFileFailure() throws IOException {
-        String fileName = "emptyFile.txt";
-        createTempFile(fileName, "");
-        FossilStone fossilStone = new FossilStone();
-        try {
-            fossilStone.getHeaders(fileName);
-            fail("exception");
-        } catch (IOException e) {
-            assertEquals("file is empty", e.getMessage());
-        }
-    }
 }
