@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.preciousStone;
+package work.src.main.java.ua.lviv.iot.models;
 
 import lombok.*;
 
@@ -9,6 +9,7 @@ import lombok.*;
 @ToString
 
 public class PreciousStone extends Stone {
+
     private double clarity;
     private static PreciousStone instance = new PreciousStone();
 
@@ -29,9 +30,19 @@ public class PreciousStone extends Stone {
         pricePerGram += pricePerGram / percentage;
     }
 
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEADER
+    @Override
+    public String getHeaders(){
+        return super.getHeaders() + "," + "clarity";
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CSV
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + clarity;
+    }
+
     @Override
     public double getFullPrice() {
         return weightInGrams * pricePerGram * clarity;
     }
-
 }

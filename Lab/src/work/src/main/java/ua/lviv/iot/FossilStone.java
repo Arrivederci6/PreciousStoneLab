@@ -1,4 +1,5 @@
-package ua.lviv.iot.algo.part1.preciousStone;
+package work.src.main.java.ua.lviv.iot;
+
 
 public class FossilStone extends Stone{
     private double energyPerBurnedGram;
@@ -7,6 +8,18 @@ public class FossilStone extends Stone{
         super(name, color, weightInGrams, pricePerGram);
         this.energyPerBurnedGram = energyPerBurnedGram;
     }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEADER
+    @Override
+    public String getHeaders(){
+        return super.getHeaders() + "," + "energyPerBurnedGram";
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CSV
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + energyPerBurnedGram;
+    }
+
     @Override
     public double getFullPrice() {
         return pricePerGram * energyPerBurnedGram;

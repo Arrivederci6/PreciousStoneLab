@@ -1,11 +1,20 @@
-package ua.lviv.iot.algo.part1.preciousStone;
+package work.src.test.java.ua.lviv.iot;
 
-import org.junit.jupiter.api.Assertions;
+import lombok.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import work.src.main.java.ua.lviv.iot.FossilStone;
+import work.src.main.java.ua.lviv.iot.PreciousStone;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 class PreciousStoneTest {
 
     private PreciousStone preciousStone;
@@ -25,13 +34,12 @@ class PreciousStoneTest {
 
     @Test
     void testIncreaseClarity(){
-        // Get initial clarity
         double initialClarity = preciousStone.getClarity();
-        // Call increaseClarity() method
+
         preciousStone.increaseClarity();
-        // Get updated clarity
+
         double updatedClarity = preciousStone.getClarity();
-        // Ensure clarity is increased by 1
+
         assertEquals(initialClarity + 1, updatedClarity);
     }
 
@@ -55,4 +63,5 @@ class PreciousStoneTest {
         double actualFullPrice = preciousStone.getFullPrice();
         assertEquals(expectedFullPrice, actualFullPrice);
     }
+
 }
